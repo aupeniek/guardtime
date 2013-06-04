@@ -11,8 +11,8 @@ var webdriver = require('wd')
 var browser = webdriver.remote(
     "ondemand.saucelabs.com"
     , 80
-    , "username-string"
-    , "access-key-string"
+    , "aupeniek"
+    , "2850f60b-adb0-4e08-9f82-25b617aeed70"
 );
 
 browser.on('status', function(info){
