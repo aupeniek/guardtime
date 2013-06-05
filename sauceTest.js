@@ -24,9 +24,9 @@ browser.on('command', function(meth, path){
 });
 
 var desired = {
-    browserName: 'iphone'
-    , version: '5.0'
-    , platform: 'Mac 10.6'
+    browserName: 'FIREFOX'
+    , version: '21'
+    , platform: 'Linux'
     , tags: ["examples"]
     , name: "This is an example test"
 }
