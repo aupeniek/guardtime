@@ -32,9 +32,9 @@ function setCapabilities(args) {
     var results = new Array;
     args.forEach(function (val, index, array) {
         if (array[1]) {
-            if (index>1 && (val.charAt(0)=='-')) {
-                val = val.slice(1);
-                var params = val.split('&');
+            if (index>1 && (value.charAt(0)=='-')) {
+                value = value.slice(1);
+                var params = value.split('&');
                 params[0] = setPlatform(params[0]);
                 params[1] = setBrowser(params[1]);
                 if (!params[2]) params[2] = '21'; //defaulting to FIREFOX version 21
