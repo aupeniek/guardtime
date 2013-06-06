@@ -5,7 +5,7 @@
  * Time: 9:32 PM
  * To change this template use File | Settings | File Templates.
  */
-var webdriver = require('../wd')
+var webdriver = require('wd')
     , assert = require('assert');
 
 var browser = webdriver.remote(
