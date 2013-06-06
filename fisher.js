@@ -33,7 +33,7 @@ function getPath(parameter) {
 };
 
 function getPlatform(parameter) {
-    var params = parameter.split("&");
+    var params = parameter.split("+");
     var result = {};
     result['os'] = getOs(params[0]);
     result['browser'] = getBrowser(params[1]);
