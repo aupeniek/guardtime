@@ -5,7 +5,7 @@
  * Time: 9:32 PM
  * To change this template use File | Settings | File Templates.
  */
-var webdriver = require('wd')
+var webdriver = require('../wd')
     , assert = require('assert');
 
 var browser = webdriver.remote(
@@ -17,6 +17,7 @@ var browser = webdriver.remote(
 
 browser.on('status', function(info){
     console.log('\x1b[36m%s\x1b[0m', info);
+    //console.log('https://saucelabs.com/tests/' + getSessionID(info));
 });
 
 browser.on('command', function(meth, path){
@@ -31,7 +32,7 @@ var desired = {
     , name: "This is an example test"
 }
 
-browser.init(desired, function() {
+browser.init(desired, function(err, sessionId) {
     browser.get("http://saucelabs.com/test/guinea-pig", function() {
         browser.title(function(err, title) {
             assert.ok(~title.indexOf('I am a page title - Sauce Labs'), 'Wrong title!');
@@ -40,6 +41,7 @@ browser.init(desired, function() {
                     browser.eval("window.location.href", function(err, href) {
                         assert.ok(~href.indexOf('guinea'), 'Wrong URL!');
                         browser.quit()
+                        console.log('Test available at: https://saucelabs.com/tests/' + sessionId);
                     })
                 })
             })
