@@ -64,11 +64,9 @@ browser.init(desired, function(err, sessionId) {
 
                                 browser.elementByXPath("//a[contains(@href, '/landing/forgetToken')]", function(err, ell) {
                                     browser.clickElement(ell, function() {
-                                        browser.waitForElementByTagName('button', 10000, function(err, el) {
-                                            //console.log(ell);
-                                            browser.quit();
-                                            console.log('Test available at: https://saucelabs.com/tests/' + sessionId);
-                                        })
+                                        //console.log(ell);
+                                        browser.quit();
+                                        console.log('Test available at: https://saucelabs.com/tests/' + sessionId);
 
                                     })
 
