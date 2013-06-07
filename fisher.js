@@ -17,6 +17,8 @@ function init(args) {
             if (key == 'suite') config[key] =  value;
             if (key == 'platform') config[key] = getPlatform(value);
             if (key == 'server') config[key] = getServer(value);
+            if (key == 'portaluser') config[key] = value;
+            if (key == 'password') config[key] = value;
             //if (!params[2]) params[2] = '21'; //defaulting to FIREFOX version 21
         }
     })
