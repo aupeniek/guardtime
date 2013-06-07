@@ -51,38 +51,30 @@ browser.init(desired, function(err, sessionId) {
                         assert.ok(~href.indexOf('sso.joyentcloud.com'), 'Wrong URL!');
                         browser.elementByName('username', function(err, el) {
                             el.type(portaluser);
-                        })
-                        browser.elementByName('password', function(err, el) {
-                            el.type(password);
-                        })
-                        browser.elementById('login-submit', function(err, el) {
-                            browser.clickElement(el);
-                            browser.waitForElementByClassName('active', 10000, function(err, el) {
-                                browser.eval("window.location.href", function(err, href) {
-                                    assert.ok(~href.indexOf('dashboard'), 'Wrong URL!');
-                                })
+                            browser.elementByName('password', function(err, el) {
+                                el.type(password);
+                                browser.elementById('login-submit', function(err, el) {
+                                    browser.clickElement(el);
+                                    browser.waitForElementByClassName('active', 10000, function(err, el) {
+                                        browser.eval("window.location.href", function(err, href) {
+                                            assert.ok(~href.indexOf('dashboard'), 'Wrong URL!');
+                                        })
 
-                                browser.elementByXPath("//a[contains(@href, '/landing/forgetToken')]", function(err, ell) {
-                                    browser.clickElement(ell, function() {
-                                        //console.log(ell);
-                                        browser.quit();
-                                        console.log('Test available at: https://saucelabs.com/tests/' + sessionId);
+                                        browser.elementByXPath("//a[contains(@href, '/landing/forgetToken')]", function(err, ell) {
+                                            browser.clickElement(ell, function() {
+                                                //console.log(ell);
+                                                browser.quit();
+                                                console.log('Test available at: https://saucelabs.com/tests/' + sessionId);
 
+                                            })
+                                        })
                                     })
-
                                 })
-
                             })
                         })
-
-
                     })
                 })
             })
         })
-
-
-
-
     })
 })
